@@ -32,7 +32,6 @@ const App = () => {
     fetchMessages();
     const intervalId = setInterval(() => {
       void fetchLastMessages();
-      console.log("inside interval");
     }, 2000);
 
     return () => {

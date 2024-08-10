@@ -15,7 +15,7 @@ const Messages: React.FC<Props> = ({ messages }) => {
           key={Math.random()}
           author={messageItem.author}
           message={messageItem.message}
-          datetime={messageItem.datetime}
+          date={messageItem.date}
         />
       ))}
     </Grid>
