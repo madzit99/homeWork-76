@@ -23,7 +23,7 @@ const fileDb = {
     }
   },
 
-  async getItems(filter: Filter) {
+  async getItems(filter?: Filter) {
     if (!filter || !filter.datetime) {
       return data.slice(0, 30);
     }
