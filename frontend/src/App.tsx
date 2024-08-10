@@ -11,20 +11,20 @@ const App = () => {
   let lastDate: string;
 
   const fetchMessages = async () => {
-    const response = await axios.get("http://146.185.154.90:8000/messages");
+    const response = await axios.get("http://localhost:8000/messages");
     const data = response.data;
     setMessages(data);
-    lastDate = data[data.length - 1].datetime;
+    lastDate = data[data.length - 1].date;
   };
 
   const fetchLastMessages = async () => {
     const response = await axios.get(
-      "http://146.185.154.90:8000/messages?datetime=" + lastDate
+      "http://localhost:8000/messages?datetime=" + lastDate
     );
     const newMessages: MessageType[] = response.data;
     if (newMessages.length > 0) {
       setMessages((prevState) => [...prevState, ...newMessages]);
-      lastDate = newMessages[newMessages.length - 1].datetime;
+      lastDate = newMessages[newMessages.length - 1].date;
     }
   };
 

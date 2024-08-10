@@ -6,7 +6,7 @@ import axios from "axios";
 const initialState: MessageType = {
   author: "",
   message: "",
-  datetime: "",
+  date: "",
 };
 
 const ChatForm = () => {
@@ -21,11 +21,11 @@ const ChatForm = () => {
   };
 
   const sendMessage = async () => {
-    const url = "http://146.185.154.90:8000/messages";
-    const data = new URLSearchParams();
-    data.set("message", message.message);
-    data.set("author", message.author);
-
+    const url = "http://localhost:8000/messages";
+    const data = {
+      author: message.author,
+      message: message.message,
+    };
     try {
       await axios.post(url, data);
     } catch (e) {
